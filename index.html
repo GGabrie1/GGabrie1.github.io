@@ -43,14 +43,16 @@
     font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
   .arrow span:last-child{font-size:.95rem;transition:transform .18s ease}
   a.card:hover .arrow span:last-child{transform:translateX(4px)}
-  footer{border-top:1px solid var(--rule);padding:26px 0 40px;display:flex;flex-wrap:wrap;gap:12px;
-    justify-content:space-between;font-size:.8rem;color:var(--ink-3)}
+  .site-footer{border-top:1px solid var(--rule)}
+  .site-footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+    padding:26px 32px 40px;font-size:.8rem;color:var(--ink-3)}
   footer a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule)}
   footer a:hover{border-color:var(--accent);color:var(--accent)}
   @media (max-width:760px){
     .grid{grid-template-columns:1fr}
     main{padding:56px 0 64px}
     .wrap{padding:0 22px}
+    .site-footer .wrap{padding:22px 22px 34px}
   }
 </style>
 </head>
@@ -86,9 +88,11 @@
   </div>
 </main>
 
-<footer class="wrap">
-  <span>&copy; 2026 Zhichen Gao · BEng (Hons) Electrical and Electronic Engineering</span>
-  <span><a href="https://github.com/GGabrie1/GGabrie1.github.io" target="_blank" rel="noopener">Source repository</a></span>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Zhichen Gao · BEng (Hons) Electrical and Electronic Engineering</span>
+    <span><a href="https://github.com/GGabrie1/GGabrie1.github.io" target="_blank" rel="noopener">Source repository</a></span>
+  </div>
 </footer>
 </body>
 </html>
