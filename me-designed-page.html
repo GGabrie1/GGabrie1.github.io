@@ -150,7 +150,7 @@
   .sec-label .num{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--accent)}
   .sec-label .line{flex:1;height:1px;background:var(--rule)}
   .sec-label .txt{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
-  .sec-intro{max-width:660px;margin:-24px 0 38px;color:var(--ink-2);font-size:.97rem;line-height:1.72}
+  .sec-intro{max-width:660px;margin:-24px 0 38px;color:var(--ink-2);font-size:.97rem;line-height:1.72;text-wrap:balance}
 
   h2{font-family:var(--display);font-size:clamp(1.7rem,2.6vw,2.3rem);line-height:1.12;letter-spacing:-.035em;font-weight:600}
   h3{font-family:var(--display);letter-spacing:-.02em}
@@ -165,7 +165,7 @@
     margin:22px 0 26px;
   }
   .hero h1 span{color:var(--accent)}
-  .lede{font-size:1.06rem;color:var(--ink-2);max-width:600px}
+  .lede{font-size:1.06rem;color:var(--ink-2);max-width:640px;text-wrap:balance}
   .lede strong{color:var(--ink);font-weight:600}
   .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
   .btn{
@@ -191,9 +191,6 @@
   .spec dd small{display:block;font-family:var(--body);font-size:.74rem;color:var(--ink-3);font-weight:400;margin-top:3px}
 
   /* ============ PROFILE ============ */
-  .profile-grid{display:block;max-width:740px}
-  .profile-copy p{color:var(--ink-2);margin-bottom:18px;font-size:.98rem}
-  .profile-copy p strong{color:var(--ink);font-weight:600}
 
   /* ============ WORK ============ */
   .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
@@ -327,7 +324,6 @@
     .spec:nth-child(3){border-left:0;padding-left:0}
     .spec{border-top:1px solid var(--rule)}
     .spec:nth-child(1),.spec:nth-child(2){border-top:0}
-    .profile-grid{grid-template-columns:1fr;gap:34px}
     .contact{grid-template-columns:1fr;gap:36px;align-items:start}
   }
   @media (max-width:760px){
@@ -368,16 +364,15 @@
 <!-- ============ RAIL ============ -->
 <aside class="rail" aria-label="Sidebar">
   <a class="brand" href="#top" aria-label="Back to top">
-    <span class="brand-mark">ZG</span>
+    <span class="brand-mark">GZ</span>
     <span class="brand-text">Zhichen Gao<small>EEE · UNNC</small></span>
   </a>
 
   <nav class="rail-nav" aria-label="Sections">
-    <a href="#profile" data-sec="profile"><i>01</i> Profile</a>
-    <a href="#work" data-sec="work"><i>02</i> Work</a>
-    <a href="#education" data-sec="education"><i>03</i> Education</a>
-    <a href="#toolkit" data-sec="toolkit"><i>04</i> Toolkit</a>
-    <a href="#contact" data-sec="contact"><i>05</i> Contact</a>
+    <a href="#work" data-sec="work"><i>01</i> Work</a>
+    <a href="#community" data-sec="community"><i>02</i> Community</a>
+    <a href="#toolkit" data-sec="toolkit"><i>03</i> Toolkit</a>
+    <a href="#contact" data-sec="contact"><i>04</i> Contact</a>
   </nav>
 
   <div class="rail-foot">
@@ -396,7 +391,7 @@
 <!-- ============ MOBILE BAR ============ -->
 <header class="mobilebar">
   <a class="brand" href="#top" aria-label="Back to top">
-    <span class="brand-mark">ZG</span>
+    <span class="brand-mark">GZ</span>
     <span class="brand-text">Zhichen Gao<small>EEE · UNNC</small></span>
   </a>
   <div class="mobile-actions">
@@ -414,11 +409,10 @@
   <button class="close" id="drawerClose" aria-label="Close menu">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
   </button>
-  <a href="#profile"><i>01</i> Profile</a>
-  <a href="#work"><i>02</i> Work</a>
-  <a href="#education"><i>03</i> Education</a>
-  <a href="#toolkit"><i>04</i> Toolkit</a>
-  <a href="#contact"><i>05</i> Contact</a>
+  <a href="#work"><i>01</i> Work</a>
+  <a href="#community"><i>02</i> Community</a>
+  <a href="#toolkit"><i>03</i> Toolkit</a>
+  <a href="#contact"><i>04</i> Contact</a>
 </div>
 
 <main id="main">
@@ -429,10 +423,10 @@
       <div class="hero-grid">
         <div class="hero-copy reveal">
           <div class="mono">Portfolio — 2026 / 07</div>
-          <h1>Zhichen<br />Gao<span>.</span></h1>
+          <h1>Zhichen Gao<span>.</span></h1>
           <p class="lede">
-            Final-year Electrical and Electronic Engineering student at Nottingham Ningbo. I work on
-            <strong>control, embedded systems and machine learning</strong>, and I like results I can measure.
+            Final-year Electrical and Electronic Engineering student in Ningbo, China. I work on
+            <strong>control, embedded systems and machine learning</strong>. I like results I can measure.
           </p>
           <div class="hero-cta">
             <a class="btn btn-solid" href="assets/Zhichen_Gao_CV.pdf" download>
@@ -457,33 +451,10 @@
     </div>
   </section>
 
-  <!-- ============ PROFILE ============ -->
-  <section id="profile">
-    <div class="wrap">
-      <div class="sec-label reveal"><span class="num">01</span><span class="txt">Profile</span><span class="line"></span></div>
-      <div class="profile-grid">
-        <div class="profile-copy reveal">
-          <h2>I build systems that have to work outside the lab.</h2>
-          <p style="margin-top:22px">
-            Final-year <strong>BEng (Hons) Electrical and Electronic Engineering</strong> student at the University
-            of Nottingham Ningbo China, with a <strong>3.86/4.00 GPA</strong> and six engineering projects behind
-            me — three research, three design builds.
-          </p>
-          <p>
-            I am currently working on <strong>rotor position estimation for IPMSM</strong> using cross-saturation
-            inductance regression, with John Xu. I also lead a real-time ship trajectory forecasting project: the
-            AIS pipeline, Transformer and diffusion models, and a reasoning layer that explains each predicted
-            turn. The best model reached a minADE₂₀ of 38.71 m, about 10 m better than my baselines.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ WORK ============ -->
   <section id="work">
     <div class="wrap">
-      <div class="sec-label reveal"><span class="num">02</span><span class="txt">Selected Work</span><span class="line"></span></div>
+      <div class="sec-label reveal"><span class="num">01</span><span class="txt">Selected Work</span><span class="line"></span></div>
       <p class="sec-intro reveal">Six projects across research, hardware and software. Every one shipped to a number I can defend.</p>
 
       <div class="filters reveal" role="group" aria-label="Filter projects by type">
@@ -600,36 +571,43 @@
     </div>
   </section>
 
-  <!-- ============ EDUCATION ============ -->
-  <section id="education">
+  <!-- ============ COMMUNITY ============ -->
+  <section id="community">
     <div class="wrap">
-      <div class="sec-label reveal"><span class="num">03</span><span class="txt">Education</span><span class="line"></span></div>
-      <p class="sec-intro reveal">A BEng in electrical and electronic engineering, and a summer research programme that put the theory on a robot.</p>
+      <div class="sec-label reveal"><span class="num">02</span><span class="txt">Community</span><span class="line"></span></div>
+      <p class="sec-intro reveal">Design work, mentoring and event teams.</p>
       <div class="edu">
         <div class="edu-row reveal">
-          <div class="yr">09/2023 — 07/2027</div>
+          <div class="yr">2023 — 2026</div>
           <div>
-            <h3>BEng (Hons) Electrical and Electronic Engineering</h3>
-            <p>University of Nottingham Ningbo China</p>
-            <div class="mods"><span>Control Systems</span><span>Power Electronics</span><span>Embedded Systems</span><span>Digital Signal Processing</span><span>Robotics</span><span>Machine Learning</span></div>
+            <h3>UNNC Health &amp; Wellbeing Centre</h3>
+            <p>Posters, campaign material and event design in Photoshop and Illustrator, plus procurement support.</p>
           </div>
-          <div class="meta">GPA 3.86 / 4.00<br />Expected 2027</div>
+          <div class="meta">Design</div>
         </div>
         <div class="edu-row reveal">
-          <div class="yr">Summer 2025</div>
+          <div class="yr">2024</div>
           <div>
-            <h3>Summer Undergraduate Research Programme (FURP)</h3>
-            <p>Mobile robotic arm grasping and placement strategies · Dr. C.F. Kwong</p>
+            <h3>Peer Mentor &amp; Teaching Volunteer</h3>
+            <p>Orientation support for new students; first-aid and health-awareness sessions in the local community.</p>
           </div>
-          <div class="meta">Poster presentation</div>
+          <div class="meta">Mentoring</div>
         </div>
         <div class="edu-row reveal">
-          <div class="yr">2024 — 2026</div>
+          <div class="yr">2024</div>
           <div>
-            <h3>Research &amp; project leadership</h3>
-            <p>Team leader on three research projects and two engineering design projects, working with faculty advisors and industry-grade toolchains.</p>
+            <h3>6th World Buddhist Forum</h3>
+            <p>Reception and interpretation for international delegates.</p>
           </div>
-          <div class="meta">6 projects delivered</div>
+          <div class="meta">Reception</div>
+        </div>
+        <div class="edu-row reveal">
+          <div class="yr">2025</div>
+          <div>
+            <h3>International Forum on Higher Education Student Affairs</h3>
+            <p>Photography assignments and on-site logistics across a multi-day forum.</p>
+          </div>
+          <div class="meta">Logistics</div>
         </div>
       </div>
     </div>
@@ -638,7 +616,7 @@
   <!-- ============ TOOLKIT ============ -->
   <section id="toolkit">
     <div class="wrap">
-      <div class="sec-label reveal"><span class="num">04</span><span class="txt">Toolkit</span><span class="line"></span></div>
+      <div class="sec-label reveal"><span class="num">03</span><span class="txt">Toolkit</span><span class="line"></span></div>
       <h2 class="reveal" style="max-width:640px;margin-bottom:40px">The stack I reach for, from first sketch to measured result.</h2>
 
       <div class="stack-grid">
@@ -678,7 +656,7 @@
   <!-- ============ CONTACT ============ -->
   <section id="contact">
     <div class="wrap">
-      <div class="sec-label reveal"><span class="num">05</span><span class="txt">Contact</span><span class="line"></span></div>
+      <div class="sec-label reveal"><span class="num">04</span><span class="txt">Contact</span><span class="line"></span></div>
       <div class="contact">
         <div class="reveal">
           <h2>Have a problem worth building for?</h2>
