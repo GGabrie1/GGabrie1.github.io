@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zhichen Gao — Electrical &amp; Electronic Engineering Portfolio</title>
+<meta name="description" content="Personal portfolio of Zhichen Gao, Electrical and Electronic Engineering student at the University of Nottingham Ningbo China. Research in AI, autonomous systems and embedded hardware." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237c5cff'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EZG%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#070b14;
+    --bg-soft:#0b1120;
+    --panel:rgba(255,255,255,.045);
+    --panel-strong:rgba(255,255,255,.07);
+    --line:rgba(255,255,255,.09);
+    --line-strong:rgba(255,255,255,.16);
+    --text:#e9edf7;
+    --muted:#a4afc5;
+    --dim:#76829c;
+    --accent:#7c5cff;
+    --accent-2:#22d3ee;
+    --accent-3:#f472b6;
+    --grad:linear-gradient(120deg,#7c5cff 0%,#4f8cff 45%,#22d3ee 100%);
+    --radius:22px;
+    --radius-sm:14px;
+    --shadow:0 24px 60px rgba(0,0,0,.45);
+    --max:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(900px 600px at 12% -8%, rgba(124,92,255,.28), transparent 60%),
+      radial-gradient(800px 560px at 92% 8%, rgba(34,211,238,.16), transparent 60%),
+      radial-gradient(900px 700px at 50% 110%, rgba(79,140,255,.14), transparent 60%),
+      var(--bg);
+  }
+  body::after{
+    content:"";
+    position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse at 50% 0%,black 20%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse at 50% 0%,black 20%,transparent 75%);
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ::selection{background:rgba(124,92,255,.45);color:#fff}
+
+  .wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{
+    background:rgba(7,11,20,.72);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom-color:var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .logo{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-.02em}
+  .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-links{display:flex;align-items:center;gap:34px;list-style:none}
+  .nav-links a{font-size:.9rem;color:var(--muted);font-weight:500;transition:color .2s;position:relative}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;border-radius:2px;
+    background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .25s;
+  }
+  .nav-links a:hover,.nav-links a.active{color:#fff}
+  .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;justify-content:center;
+    padding:13px 24px;border-radius:999px;font-weight:600;font-size:.92rem;
+    border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 34px rgba(124,92,255,.38)}
+  .btn-primary:hover{box-shadow:0 16px 40px rgba(124,92,255,.5)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--text);background:rgba(255,255,255,.03)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.28)}
+  .btn-sm{padding:10px 18px;font-size:.85rem}
+
+  .nav-toggle{display:none;background:none;border:0;color:var(--text);cursor:pointer;padding:8px}
+  .nav-toggle svg{width:26px;height:26px}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:130px 0 90px}
+  .hero-inner{text-align:center;max-width:900px;margin-inline:auto}
+  .pill{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:8px 16px;border-radius:999px;border:1px solid var(--line-strong);
+    background:rgba(255,255,255,.04);color:var(--muted);
+    font-size:.83rem;font-weight:500;letter-spacing:.01em;margin-bottom:28px;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 4px rgba(52,211,153,.18);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(52,211,153,.18)}50%{box-shadow:0 0 0 8px rgba(52,211,153,.05)}}
+  h1{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-size:clamp(3rem,7.4vw,5.3rem);
+    line-height:1.02;letter-spacing:-.045em;font-weight:800;margin-bottom:26px;
+  }
+  h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+  .hero-sub{font-size:clamp(1rem,1.6vw,1.18rem);color:var(--muted);max-width:640px;margin:0 auto 38px}
+  .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
+  .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:760px;margin:0 auto}
+  .stat{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);
+    padding:18px 14px;text-align:center;transition:transform .25s,border-color .25s,background .25s;
+  }
+  .stat:hover{transform:translateY(-4px);border-color:rgba(124,92,255,.45);background:var(--panel-strong)}
+  .stat b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:1.45rem;letter-spacing:-.02em;margin-bottom:2px}
+  .stat span{font-size:.76rem;color:var(--dim);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:104px 0;scroll-margin-top:90px}
+  .eyebrow{
+    display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.76rem;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--accent-2);margin-bottom:16px;
+  }
+  .sec-head{max-width:680px;margin-bottom:52px}
+  .sec-head.center{margin-inline:auto;text-align:center}
+  h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.12;letter-spacing:-.03em;font-weight:800;margin-bottom:14px}
+  .sec-head p{color:var(--muted);font-size:.98rem}
+  .grid{display:grid;gap:22px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;transition:transform .28s ease,border-color .28s ease,background .28s ease,box-shadow .28s ease;
+    position:relative;overflow:hidden;
+  }
+  .card::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    background:radial-gradient(420px 220px at 50% -10%,rgba(124,92,255,.14),transparent 70%);
+    opacity:0;transition:opacity .3s;
+  }
+  .card:hover{transform:translateY(-6px);border-color:rgba(124,92,255,.42);background:var(--panel-strong);box-shadow:var(--shadow)}
+  .card:hover::before{opacity:1}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:start}
+  .about-copy p{color:var(--muted);margin-bottom:16px;font-size:1rem}
+  .about-copy strong{color:var(--text);font-weight:600}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fact{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);
+    padding:18px;
+  }
+  .fact span{display:block;font-size:.7rem;color:var(--dim);letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+  .fact b{font-size:.94rem;font-weight:600;line-height:1.4}
+
+  /* Education timeline */
+  .timeline{position:relative;padding-left:30px}
+  .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--accent),rgba(34,211,238,.35),transparent)}
+  .titem{position:relative;padding-bottom:34px}
+  .titem:last-child{padding-bottom:0}
+  .titem::before{
+    content:"";position:absolute;left:-30px;top:7px;width:16px;height:16px;border-radius:50%;
+    background:var(--bg);border:3px solid var(--accent);box-shadow:0 0 0 5px rgba(124,92,255,.14);
+  }
+  .tdate{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent-2);letter-spacing:.06em;margin-bottom:4px}
+  .titem h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.15rem;letter-spacing:-.01em;margin-bottom:4px}
+  .titem p{color:var(--muted);font-size:.92rem}
+
+  /* Research */
+  .r-card{display:flex;flex-direction:column;gap:14px}
+  .r-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+  .r-icon{
+    width:46px;height:46px;border-radius:13px;display:grid;place-items:center;flex:none;
+    background:linear-gradient(135deg,rgba(124,92,255,.28),rgba(34,211,238,.18));
+    border:1px solid rgba(124,92,255,.35);font-size:1.15rem;color:#d9d2ff;
+  }
+  .r-icon svg{width:22px;height:22px}
+  .r-meta{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--dim);letter-spacing:.04em;text-align:right;line-height:1.5;margin-top:6px}
+  .r-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.12rem;line-height:1.35;letter-spacing:-.01em}
+  .role{font-size:.8rem;color:var(--accent-2);font-weight:600}
+  .bullets{list-style:none;display:grid;gap:9px}
+  .bullets li{position:relative;padding-left:16px;color:var(--muted);font-size:.9rem;line-height:1.6}
+  .bullets li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
+  .tag{font-size:.7rem;font-weight:600;letter-spacing:.05em;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--muted)}
+  .metric{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#8ef0c5;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.18);border-radius:10px;padding:10px 12px;line-height:1.5}
+
+  /* Projects */
+  .p-card{display:flex;flex-direction:column;gap:12px}
+  .p-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.08rem;letter-spacing:-.01em;line-height:1.35}
+  .p-card p{color:var(--muted);font-size:.9rem;line-height:1.65}
+  .p-num{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--dim);letter-spacing:.14em}
+
+  /* Skills */
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .skill-card{padding:26px}
+  .skill-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .skill-card h3 .k{display:inline-flex;align-items:center;color:var(--accent-2)}
+  .k svg{width:17px;height:17px}
+  .skill{margin-bottom:15px}
+  .skill:last-child{margin-bottom:0}
+  .skill-top{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:7px;color:var(--muted)}
+  .skill-top b{color:var(--text);font-weight:500}
+  .bar{height:7px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:999px;background:var(--grad);width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+
+  /* Beyond */
+  .b-card{display:flex;gap:14px;align-items:flex-start}
+  .b-ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:rgba(255,255,255,.05);border:1px solid var(--line);flex:none;font-size:1rem;color:var(--muted)}
+  .b-ico svg{width:18px;height:18px}
+  .b-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:.98rem;margin-bottom:4px}
+  .b-card p{color:var(--muted);font-size:.86rem;line-height:1.6}
+
+  /* Contact */
+  .contact-panel{
+    position:relative;border:1px solid var(--line-strong);border-radius:28px;overflow:hidden;
+    background:linear-gradient(135deg,rgba(124,92,255,.16),rgba(34,211,238,.08) 55%,rgba(255,255,255,.02));
+    padding:64px 40px;text-align:center;
+  }
+  .contact-panel::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(600px 240px at 50% 0%,rgba(124,92,255,.25),transparent 70%);
+  }
+  .contact-panel > *{position:relative;z-index:1}
+  .contact-panel h2{margin-bottom:14px}
+  .contact-panel p{color:var(--muted);max-width:520px;margin:0 auto 32px}
+  .contact-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .contact-links{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:34px;font-size:.9rem}
+  .contact-links a{color:var(--muted);display:inline-flex;align-items:center;gap:8px;transition:color .2s}
+  .contact-links a:hover{color:#fff}
+  .contact-links a svg{flex:none;opacity:.85}
+
+  footer{border-top:1px solid var(--line);padding:34px 0 44px;margin-top:20px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:.84rem;color:var(--dim)}
+  .foot-inner a{color:var(--muted)}
+  .foot-inner a:hover{color:#fff}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .dot{animation:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* Responsive */
+  @media (max-width:960px){
+    .nav-links{display:none}
+    .nav-toggle{display:block}
+    .about-grid{grid-template-columns:1fr;gap:32px}
+    .g3{grid-template-columns:1fr 1fr}
+    .hero-stats{grid-template-columns:repeat(2,1fr)}
+    .skills-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:640px){
+    .wrap{width:calc(100% - 36px)}
+    section{padding:78px 0}
+    .g2,.g3{grid-template-columns:1fr}
+    .hero{padding-top:106px}
+    h1{font-size:clamp(1.9rem,9vw,2.2rem);line-height:1.06}
+    .hero-stats{grid-template-columns:1fr 1fr;gap:10px}
+    .stat b{font-size:1.2rem}
+    .contact-panel{padding:48px 22px}
+    .facts{grid-template-columns:1fr}
+    .card{padding:22px}
+  }
+  /* Mobile drawer */
+  .drawer{
+    position:fixed;inset:0;z-index:60;background:rgba(5,8,15,.96);backdrop-filter:blur(14px);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+    opacity:0;pointer-events:none;transition:opacity .25s;
+  }
+  .drawer.open{opacity:1;pointer-events:auto}
+  .drawer a{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:700;color:var(--text)}
+  .drawer .close{position:absolute;top:26px;right:26px;background:none;border:0;color:var(--text);cursor:pointer}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top">ZG<span>.</span></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="assets/Zhichen_Gao_CV.pdf" download>Download CV</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <button class="close" id="drawerClose" aria-label="Close menu">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="pill"><span class="dot"></span> Open to research opportunities · 2026</div>
+        <h1>Hi, I'm Zhichen Gao<br /><span class="grad">Building intelligent systems.</span></h1>
+        <p class="hero-sub">
+          Electrical &amp; Electronic Engineering student at the University of Nottingham Ningbo China.
+          I work at the intersection of AI, autonomous systems and embedded hardware — turning ideas into working prototypes.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Explore My Work
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="assets/Zhichen_Gao_CV.pdf" download>View CV</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>3.86</b><span>GPA / 4.00</span></div>
+          <div class="stat"><b>3</b><span>Research Projects</span></div>
+          <div class="stat"><b>6</b><span>Engineering Projects</span></div>
+          <div class="stat"><b>2027</b><span>Graduating</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">01 — About Me</div>
+        <h2>A curious engineer with a builder's mindset</h2>
+        <p>I enjoy problems that sit between disciplines — where control theory meets machine learning, and where code has to survive contact with real hardware.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p>
+            I'm a final-year <strong>BEng (Hons) Electrical and Electronic Engineering</strong> student at the
+            <strong>University of Nottingham Ningbo China</strong>, currently maintaining a
+            <strong>GPA of 3.86/4.00</strong>. My interests span autonomous systems, robot perception and control,
+            embedded design and applied machine learning.
+          </p>
+          <p>
+            Over the past two years I have worked across six engineering projects, from a 50 W two-switch forward converter
+            and a radar speed detector, to an autonomous driving car and a BLE 5.1 real-time location system.
+            My current research focuses on <strong>real-time ship trajectory forecasting</strong>, where I combine
+            Transformer-based models with LLM reasoning to predict and explain vessel behaviour.
+          </p>
+          <p>
+            I care about engineering that works outside the lab: simulations are a tool, not the goal. That's why I
+            like to move from model to measurement — PCB, firmware, and data — as quickly as possible.
+          </p>
+          <div class="hero-actions" style="justify-content:flex-start;margin:26px 0 0">
+            <a class="btn btn-ghost btn-sm" href="mailto:Zhichen_gao0413@163.com">Get in touch</a>
+            <a class="btn btn-ghost btn-sm" href="assets/Zhichen_Gao_CV.pdf" download>Download CV</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="facts">
+            <div class="fact"><span>University</span><b>University of Nottingham Ningbo China</b></div>
+            <div class="fact"><span>Degree</span><b>BEng (Hons) Electrical &amp; Electronic Engineering</b></div>
+            <div class="fact"><span>Location</span><b>Ningbo, China</b></div>
+            <div class="fact"><span>Focus</span><b>AI · Autonomy · Embedded Systems</b></div>
+            <div class="fact"><span>Languages</span><b>English · Mandarin</b></div>
+            <div class="fact"><span>Status</span><b>Open to research &amp; internships</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">02 — Education</div>
+        <h2>Academic background</h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="titem">
+          <div class="tdate">Sep 2023 — Jul 2027 (expected)</div>
+          <h3>BEng (Hons) Electrical and Electronic Engineering</h3>
+          <p>University of Nottingham Ningbo China · GPA 3.86 / 4.00</p>
+          <p style="margin-top:6px">Core areas: control systems, power electronics, embedded systems, signal processing,
+            robotics and machine learning.</p>
+        </div>
+        <div class="titem">
+          <div class="tdate">2024 — 2026</div>
+          <h3>Research &amp; project leadership</h3>
+          <p>Team leader on three research projects and three design builds, working directly with
+            faculty advisors and industry-grade toolchains.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">03 — Research</div>
+        <h2>Research experience</h2>
+        <p>Three projects spanning trajectory prediction, robotic manipulation and wireless localisation.</p>
+      </div>
+      <div class="grid g3">
+        <article class="card r-card reveal">
+          <div class="r-top">
+            <div class="r-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l19-8-8 19-2-8-9-3z"/></svg></div>
+            <div class="r-meta">02/2026 — Present<br />Team Leader</div>
+          </div>
+          <h3>Real-Time Ship Trajectory Forecasting for Autonomous Driving</h3>
+          <div class="role">Advised by Dr. Mingda Zhu</div>
+          <ul class="bullets">
+            <li>Built multi-ship encounter datasets from large-scale AIS data using bounding-box filtering, cubic spline interpolation and a danger-continuity check.</li>
+            <li>Developed Transformer, STGCNN and diffusion-based (DDPM) forecasting models for complex encounter scenarios.</li>
+            <li>Designed a hybrid prediction–explanation pipeline with Qwen2.5-3B and a domain-aware chain-of-thought engine.</li>
+          </ul>
+          <div class="metric">minADE₂₀ 38.71 m · minFDE₂₀ 67.65 m — approx. 10 m / 20 m better than baselines</div>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformer</span><span class="tag">Diffusion</span><span class="tag">LLM</span></div>
+        </article>
+
+        <article class="card r-card reveal">
+          <div class="r-top">
+            <div class="r-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="2.5"/><path d="M12 4v4M9 13h.01M15 13h.01M9 19v2M15 19v2M2 12h3M19 12h3"/></svg></div>
+            <div class="r-meta">06/2025 — 08/2025<br />Team Leader</div>
+          </div>
+          <h3>Grasping and Placement Strategies for Mobile Robotic Arms</h3>
+          <div class="role">Advised by Dr. C.F. Kwong</div>
+          <ul class="bullets">
+            <li>Developed a MoveIt-based motion-planning framework for coordinated control of a mobile manipulator.</li>
+            <li>Implemented a QP-based optimisation module coordinating chassis positioning, arm trajectory and end-effector alignment.</li>
+            <li>Validated the framework in RViz, demonstrating dynamic trajectory planning and obstacle-free manipulation.</li>
+          </ul>
+          <div class="tags"><span class="tag">ROS</span><span class="tag">MoveIt</span><span class="tag">QP Optimisation</span><span class="tag">RViz</span></div>
+        </article>
+
+        <article class="card r-card reveal">
+          <div class="r-top">
+            <div class="r-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.9 19.1a10 10 0 0 1 0-14.2M19.1 4.9a10 10 0 0 1 0 14.2M7.8 16.2a6 6 0 0 1 0-8.4M16.2 7.8a6 6 0 0 1 0 8.4"/><circle cx="12" cy="12" r="2"/></svg></div>
+            <div class="r-meta">02/2025 — 05/2025<br />Team Leader</div>
+          </div>
+          <h3>Development of a BLE 5.1 Real-Time Location System</h3>
+          <div class="role">Advised by Dr. David Chieng</div>
+          <ul class="bullets">
+            <li>Configured and synchronised u-blox C211/C209 modules and built a serial telemetry pipeline using AT commands.</li>
+            <li>Built a Python GUI to parse +UUDF payloads and visualise azimuth/elevation for real-time beacon tracking.</li>
+            <li>Designed an RSSI collection framework and applied a log-distance path-loss model for distance estimation.</li>
+          </ul>
+          <div class="metric">R² ≈ 0.84 for RSSI-based distance regression</div>
+          <div class="tags"><span class="tag">BLE 5.1</span><span class="tag">Python</span><span class="tag">u-blox</span><span class="tag">Signal Processing</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">04 — Projects</div>
+        <h2>Selected engineering projects</h2>
+        <p>Hardware, firmware and software — designed, built and validated end to end.</p>
+      </div>
+      <div class="grid g3">
+        <article class="card p-card reveal">
+          <div class="p-num">PROJECT / 01</div>
+          <h3>Two-Switch Forward Converter</h3>
+          <p>50 W, 10 V, 100 kHz isolated DC–DC converter with a two-layer KiCad PCB, hand-wound magnetics and a
+            UC3524A-controlled Type III compensator. Achieved 83.5 mV output ripple under a 100 Hz input disturbance.</p>
+          <div class="tags"><span class="tag">KiCad</span><span class="tag">PLECS</span><span class="tag">Control</span></div>
+        </article>
+
+        <article class="card p-card reveal">
+          <div class="p-num">PROJECT / 02</div>
+          <h3>Radar Speed Detector</h3>
+          <p>HB100 Doppler radar front-end with OP07 band-pass conditioning, STM32U5 ADC/FFT processing and a CPLD
+            display driver written in Verilog — a complete real-time speed measurement chain.</p>
+          <div class="tags"><span class="tag">STM32</span><span class="tag">CPLD</span><span class="tag">DSP</span></div>
+        </article>
+
+        <article class="card p-card reveal">
+          <div class="p-num">PROJECT / 03</div>
+          <h3>Autonomous Driving Car</h3>
+          <p>Raspberry Pi + Arduino platform with an OpenCV perception pipeline, ultrasonic/infrared sensor fusion and
+            real-time motor control for lane following, braking and basic obstacle avoidance.</p>
+          <div class="tags"><span class="tag">OpenCV</span><span class="tag">Raspberry Pi</span><span class="tag">Arduino</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">05 — Skills</div>
+        <h2>Technical toolkit</h2>
+        <p>Tools I use regularly to move from concept to validated hardware.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="card skill-card reveal">
+          <h3><span class="k"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/></svg></span> Programming</h3>
+          <div class="skill"><div class="skill-top"><b>C / C++</b><span>90%</span></div><div class="bar"><i data-w="90"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>Python</b><span>88%</span></div><div class="bar"><i data-w="88"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>MATLAB</b><span>85%</span></div><div class="bar"><i data-w="85"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>Verilog (HDL)</b><span>82%</span></div><div class="bar"><i data-w="82"></i></div></div>
+        </div>
+        <div class="card skill-card reveal">
+          <h3><span class="k"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="2.5"/><path d="M12 4v4M9 13h.01M15 13h.01M9 19v2M15 19v2M2 12h3M19 12h3"/></svg></span> AI &amp; Robotics</h3>
+          <div class="skill"><div class="skill-top"><b>PyTorch</b><span>84%</span></div><div class="bar"><i data-w="84"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>OpenCV</b><span>86%</span></div><div class="bar"><i data-w="86"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>ROS / MoveIt</b><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>LLaMA-Factory / HF</b><span>76%</span></div><div class="bar"><i data-w="76"></i></div></div>
+        </div>
+        <div class="card skill-card reveal">
+          <h3><span class="k"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span> Embedded &amp; Hardware</h3>
+          <div class="skill"><div class="skill-top"><b>STM32</b><span>88%</span></div><div class="bar"><i data-w="88"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>Raspberry Pi / Arduino</b><span>86%</span></div><div class="bar"><i data-w="86"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>Analog &amp; digital design</b><span>85%</span></div><div class="bar"><i data-w="85"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>Oscilloscope / debug</b><span>84%</span></div><div class="bar"><i data-w="84"></i></div></div>
+        </div>
+        <div class="card skill-card reveal">
+          <h3><span class="k"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span> Software &amp; Tools</h3>
+          <div class="skill"><div class="skill-top"><b>Linux (Ubuntu)</b><span>86%</span></div><div class="bar"><i data-w="86"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>Git / GitHub</b><span>82%</span></div><div class="bar"><i data-w="82"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>KiCad / LTspice</b><span>84%</span></div><div class="bar"><i data-w="84"></i></div></div>
+          <div class="skill"><div class="skill-top"><b>PLECS</b><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEYOND -->
+  <section id="beyond" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">06 — Beyond the Lab</div>
+        <h2>Community &amp; communication</h2>
+        <p>Engineering is a team sport — I value the work that happens outside the workshop.</p>
+      </div>
+      <div class="grid g2">
+        <div class="card b-card reveal"><div class="b-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.83-.44-1.12-.28-.29-.44-.66-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/></svg></div><div><h3>UNNC Health &amp; Wellbeing Centre</h3><p>Designed posters and campaign materials with Photoshop, Illustrator and AI-assisted design tools; supported campus wellbeing events and procurement.</p></div></div>
+        <div class="card b-card reveal"><div class="b-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><h3>Peer Mentor &amp; Volunteer</h3><p>Supported new students during orientation and delivered first-aid and health-awareness sessions in the local community.</p></div></div>
+        <div class="card b-card reveal"><div class="b-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><h3>World Buddhist Forum</h3><p>Provided reception and interpretation support for international delegates during the 6th World Buddhist Forum.</p></div></div>
+        <div class="card b-card reveal"><div class="b-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div><div><h3>International Forum on Higher Education</h3><p>Coordinated photography assignments and on-site logistics for a multi-day international student-affairs forum.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact-panel reveal">
+        <div class="eyebrow">07 — Contact</div>
+        <h2>Let's build something meaningful</h2>
+        <p>I'm always happy to discuss research collaborations, internships or interesting engineering problems.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:Zhichen_gao0413@163.com">Email Me
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="assets/Zhichen_Gao_CV.pdf" download>Download CV</a>
+        </div>
+        <div class="contact-links">
+          <a href="tel:+8615893817369"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> +86 158 9381 7369</a>
+          <a href="https://github.com/GGabrie1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" stroke="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg> github.com/GGabrie1</a>
+          <a href="mailto:Zhichen_gao0413@163.com"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> Zhichen_gao0413@163.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>© <span id="year">2026</span> Zhichen Gao · Electrical &amp; Electronic Engineering</div>
+    <div>Designed with care · <a href="#top">Back to top ↑</a></div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile drawer
+  const drawer = document.getElementById('drawer');
+  const toggle = document.getElementById('navToggle');
+  const closeDrawer = () => {
+    drawer.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+  toggle.addEventListener('click', () => {
+    drawer.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
+  // Reveal on scroll
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObserver.unobserve(e.target);
+        e.target.querySelectorAll('.bar i').forEach((bar) => {
+          bar.style.width = bar.dataset.w + '%';
+        });
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+  // Active nav link
+  const links = [...document.querySelectorAll('.nav-links a')];
+  const sections = links.map((l) => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        links.forEach((l) => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach((s) => spy.observe(s));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
