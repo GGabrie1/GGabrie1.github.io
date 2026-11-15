@@ -157,15 +157,15 @@
 
   /* ============ HERO ============ */
   .hero{padding:72px 0 0;border-top:0}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-bottom:64px}
+  .hero-grid{display:grid;grid-template-columns:1fr;padding-bottom:56px}
   .hero .mono{color:var(--accent)}
   .hero h1{
     font-family:var(--display);font-weight:700;
-    font-size:clamp(3.4rem,7vw,6rem);line-height:.94;letter-spacing:-.055em;
+    font-size:clamp(3.2rem,7.6vw,6.3rem);line-height:.94;letter-spacing:-.055em;
     margin:22px 0 26px;
   }
   .hero h1 span{color:var(--accent)}
-  .lede{font-size:1.06rem;color:var(--ink-2);max-width:520px}
+  .lede{font-size:1.06rem;color:var(--ink-2);max-width:600px}
   .lede strong{color:var(--ink);font-weight:600}
   .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
   .btn{
@@ -180,18 +180,6 @@
   .btn-line:hover{background:var(--ink);color:var(--paper)}
   .btn svg{width:15px;height:15px}
 
-  .hero-figure{position:relative}
-  .figure-frame{
-    border:1px solid var(--rule);border-radius:4px;background:var(--card);
-    padding:14px;box-shadow:var(--shadow);position:relative;overflow:hidden;
-  }
-  .figure-frame::before{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);
-    background-size:28px 28px;opacity:.35;
-  }
-  .figure-cap{display:flex;justify-content:space-between;gap:10px;margin-top:10px;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--ink-3);text-transform:uppercase}
-
   .spec-sheet{
     border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
     display:grid;grid-template-columns:repeat(4,1fr);
@@ -203,26 +191,9 @@
   .spec dd small{display:block;font-family:var(--body);font-size:.74rem;color:var(--ink-3);font-weight:400;margin-top:3px}
 
   /* ============ PROFILE ============ */
-  .profile-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
+  .profile-grid{display:block;max-width:740px}
   .profile-copy p{color:var(--ink-2);margin-bottom:18px;font-size:.98rem}
   .profile-copy p strong{color:var(--ink);font-weight:600}
-  .principles{margin-top:34px;border-top:1px solid var(--rule)}
-  .principle{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--rule)}
-  .principle .p-num{font-family:var(--mono);font-size:.68rem;color:var(--accent);letter-spacing:.1em;padding-top:4px}
-  .principle h4{font-family:var(--display);font-size:.98rem;font-weight:600;margin-bottom:3px;letter-spacing:-.01em}
-  .principle p{font-size:.86rem;color:var(--ink-3)}
-
-  .card-quote{
-    background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:34px 30px;
-    position:sticky;top:36px;
-  }
-  .card-quote .q-mark{font-family:var(--display);font-size:3rem;line-height:1;color:var(--accent);margin-bottom:10px}
-  .card-quote blockquote{font-family:var(--display);font-size:1.18rem;line-height:1.45;letter-spacing:-.02em;color:var(--ink)}
-  .card-quote .q-by{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:18px}
-  .focus-list{margin-top:26px;padding-top:22px;border-top:1px solid var(--rule);display:grid;gap:10px}
-  .focus-list div{display:flex;justify-content:space-between;gap:12px;font-size:.82rem}
-  .focus-list span{color:var(--ink-3)}
-  .focus-list b{font-weight:500;text-align:right}
 
   /* ============ WORK ============ */
   .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
@@ -352,13 +323,11 @@
     section{padding:70px 0}
     .hero{padding-top:56px}
     .hero-grid{grid-template-columns:1fr;gap:38px}
-    .figure-frame{max-width:560px}
     .spec-sheet{grid-template-columns:1fr 1fr}
     .spec:nth-child(3){border-left:0;padding-left:0}
     .spec{border-top:1px solid var(--rule)}
     .spec:nth-child(1),.spec:nth-child(2){border-top:0}
     .profile-grid{grid-template-columns:1fr;gap:34px}
-    .card-quote{position:static}
     .contact{grid-template-columns:1fr;gap:36px;align-items:start}
   }
   @media (max-width:760px){
@@ -384,12 +353,10 @@
     .wrap{width:auto;margin:0 18mm}
     .hero{padding-top:0}
     .hero-grid{grid-template-columns:1fr;gap:20px}
-    .hero-figure{display:none}
     .work{break-inside:avoid;box-shadow:none;background:#fff}
     .work details{display:block}
     .work details > *{display:revert}
     a{text-decoration:none}
-    .card-quote{box-shadow:none}
   }
 </style>
 </head>
@@ -415,9 +382,9 @@
 
   <div class="rail-foot">
     <div class="status"><span class="live"></span> Open to research</div>
-    <a class="rail-mail" href="mailto:Zhichen_gao0413@163.com">Zhichen_gao0413@163.com</a>
+    <a class="rail-mail" href="mailto:ssyzg8@nottingham.edu.cn">ssyzg8@nottingham.edu.cn</a>
     <div class="rail-actions">
-      <a class="copy-btn" data-copy="Zhichen_gao0413@163.com" href="#" role="button">Copy email</a>
+      <a class="copy-btn" data-copy="ssyzg8@nottingham.edu.cn" href="#" role="button">Copy email</a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -464,9 +431,8 @@
           <div class="mono">Portfolio — 2026 / 07</div>
           <h1>Zhichen<br />Gao<span>.</span></h1>
           <p class="lede">
-            Electrical &amp; Electronic Engineering undergraduate at the University of Nottingham Ningbo China.
-            I work where <strong>machine learning, control and hardware</strong> intersect — and I prefer results
-            that can be measured, not just described.
+            Final-year Electrical and Electronic Engineering student at Nottingham Ningbo. I work on
+            <strong>control, embedded systems and machine learning</strong>, and I like results I can measure.
           </p>
           <div class="hero-cta">
             <a class="btn btn-solid" href="assets/Zhichen_Gao_CV.pdf" download>
@@ -479,62 +445,14 @@
           </div>
         </div>
 
-        <figure class="hero-figure reveal">
-          <div class="figure-frame">
-            <svg viewBox="0 0 560 400" role="img" aria-label="Trajectory forecasting sketch: multiple vessel tracks with a predicted future path">
-              <defs>
-                <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
-                  <path d="M28 0H0V28" fill="none" stroke="#b9b0a0" stroke-width=".5" opacity=".5"/>
-                </pattern>
-              </defs>
-              <rect width="560" height="400" fill="url(#grid)" opacity=".55"/>
-              <g fill="none" stroke-linecap="round">
-                <!-- vessel A -->
-                <path d="M38 330 C 150 300, 190 220, 262 178" stroke="var(--ink-3)" stroke-width="1.4" stroke-dasharray="0"/>
-                <circle cx="38" cy="330" r="3.5" fill="var(--ink-3)" stroke="none"/>
-                <text x="46" y="336" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--ink-3)">V-01</text>
-                <!-- vessel B -->
-                <path d="M520 96 C 430 120, 360 150, 300 190" stroke="var(--ink-3)" stroke-width="1.4"/>
-                <circle cx="520" cy="96" r="3.5" fill="var(--ink-3)" stroke="none"/>
-                <text x="480" y="88" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--ink-3)">V-02</text>
-                <!-- own ship history -->
-                <path d="M70 92 C 150 110, 210 150, 250 196" stroke="var(--ink)" stroke-width="2"/>
-                <circle cx="70" cy="92" r="4" fill="var(--ink)" stroke="none"/>
-                <text x="78" y="86" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--ink)">OWN SHIP</text>
-                <!-- predicted -->
-                <path d="M250 196 C 300 250, 360 290, 452 312" stroke="var(--accent)" stroke-width="2" stroke-dasharray="7 6"/>
-                <circle cx="250" cy="196" r="4" fill="var(--accent)" stroke="none"/>
-                <circle cx="330" cy="258" r="2.4" fill="var(--accent)" stroke="none"/>
-                <circle cx="400" cy="294" r="2.4" fill="var(--accent)" stroke="none"/>
-                <circle cx="452" cy="312" r="4" fill="none" stroke="var(--accent)" stroke-width="1.6"/>
-                <text x="462" y="316" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--accent)">PREDICTED</text>
-              </g>
-              <!-- crossing marker -->
-              <g stroke="var(--teal)" stroke-width="1" fill="none">
-                <circle cx="300" cy="238" r="14" stroke-dasharray="2 3"/>
-                <path d="M300 224v-10M300 252v10M286 238h-10M314 238h10"/>
-              </g>
-              <text x="316" y="230" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--teal)">CPA CHECK</text>
-              <!-- annotations -->
-              <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--ink-3)">
-                <text x="24" y="30">AIS ENCOUNTER · NINGBO APPROACH</text>
-                <text x="24" y="46">ΔT = 4 s · HORIZON 20 STEPS</text>
-              </g>
-              <g font-family="IBM Plex Mono, monospace" font-size="10.5">
-                <rect x="24" y="350" width="252" height="27" fill="none" stroke="var(--rule)"/>
-                <text x="34" y="369" fill="var(--ink-3)">minADE₂₀ 38.71 m · minFDE₂₀ 67.65 m</text>
-              </g>
-            </svg>
-          </div>
-          <figcaption class="figure-cap"><span>Fig. 01 — Trajectory prediction</span><span>PyTorch / DDPM</span></figcaption>
-        </figure>
+
       </div>
 
       <dl class="spec-sheet reveal">
         <div class="spec"><dt>Based in</dt><dd>Ningbo, China<small>University of Nottingham Ningbo China</small></dd></div>
         <div class="spec"><dt>Degree</dt><dd>BEng (Hons) EEE<small>2023 — 2027 (expected)</small></dd></div>
         <div class="spec"><dt>GPA</dt><dd>3.86 / 4.00<small>Electrical &amp; Electronic Engineering</small></dd></div>
-        <div class="spec"><dt>Currently</dt><dd>Ship trajectory forecasting<small>Team leader · Dr. Mingda Zhu</small></dd></div>
+        <div class="spec"><dt>Currently</dt><dd>Rotor position estimation<small>IPMSM · with John Xu</small></dd></div>
       </dl>
     </div>
   </section>
@@ -547,40 +465,17 @@
         <div class="profile-copy reveal">
           <h2>I build systems that have to work outside the lab.</h2>
           <p style="margin-top:22px">
-            I'm a <strong>BEng (Hons) Electrical and Electronic Engineering</strong> student at the University of
-            Nottingham Ningbo China, maintaining a <strong>3.86/4.00 GPA</strong>. Over the last two years I have worked on
-            six engineering projects — three research projects and three design builds — covering
-            trajectory prediction, robotic manipulation, wireless localisation and power electronics.
+            Final-year <strong>BEng (Hons) Electrical and Electronic Engineering</strong> student at the University
+            of Nottingham Ningbo China, with a <strong>3.86/4.00 GPA</strong> and six engineering projects behind
+            me — three research, three design builds.
           </p>
           <p>
-            My current work focuses on <strong>real-time ship trajectory forecasting</strong>. I built the data
-            pipeline from raw AIS records, trained Transformer, STGCNN and diffusion models, and coupled a
-            Qwen2.5-3B reasoning layer on top so the system can explain <em>why</em> a vessel is predicted to turn.
-            The models currently reach a minADE₂₀ of 38.71 m — roughly 10 m better than the baselines I started from.
+            I am currently working on <strong>rotor position estimation for IPMSM</strong> using cross-saturation
+            inductance regression, with John Xu. I also lead a real-time ship trajectory forecasting project: the
+            AIS pipeline, Transformer and diffusion models, and a reasoning layer that explains each predicted
+            turn. The best model reached a minADE₂₀ of 38.71 m, about 10 m better than my baselines.
           </p>
-          <p>
-            I care about the full path from idea to evidence: a schematic, a PCB, firmware, a dataset, a plot that
-            proves the claim. That is the part of engineering I find most rewarding.
-          </p>
-
-          <div class="principles">
-            <div class="principle"><span class="p-num">01</span><div><h4>Make it measurable</h4><p>Every design decision should end in a number I can defend — ripple in millivolts, error in metres, R² on a regression.</p></div></div>
-            <div class="principle"><span class="p-num">02</span><div><h4>Close the loop</h4><p>Simulation is a hypothesis. The oscilloscope, the robot and the dataset are where it gets tested.</p></div></div>
-            <div class="principle"><span class="p-num">03</span><div><h4>Explain the model</h4><p>A prediction without reasoning is hard to trust. I want my systems to say what they expect and why.</p></div></div>
-          </div>
         </div>
-
-        <aside class="card-quote reveal">
-          <div class="q-mark">“</div>
-          <blockquote>Precision is not the opposite of creativity — it is what makes creativity useful.</blockquote>
-          <div class="q-by">Working principle</div>
-          <div class="focus-list">
-            <div><span>Focus</span><b>AI · Autonomy · Embedded</b></div>
-            <div><span>Tools</span><b>PyTorch · ROS · STM32</b></div>
-            <div><span>Languages</span><b>English · Mandarin</b></div>
-            <div><span>Availability</span><b>Research / internship</b></div>
-          </div>
-        </aside>
       </div>
     </div>
   </section>
@@ -789,14 +684,14 @@
           <h2>Have a problem worth building for?</h2>
           <p class="lede">I'm open to research collaborations, internships and any project where control, learning and hardware meet.</p>
           <div class="hero-cta">
-            <a class="btn btn-solid" href="mailto:Zhichen_gao0413@163.com">Write to me
+            <a class="btn btn-solid" href="mailto:ssyzg8@nottingham.edu.cn">Write to me
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
             <a class="btn btn-line" href="assets/Zhichen_Gao_CV.pdf" download>Download CV</a>
           </div>
         </div>
         <div class="contact-rows reveal">
-          <div class="crow"><span>Email</span><a href="mailto:Zhichen_gao0413@163.com">Zhichen_gao0413@163.com</a></div>
+          <div class="crow"><span>Email</span><a href="mailto:ssyzg8@nottingham.edu.cn">ssyzg8@nottingham.edu.cn</a></div>
           <div class="crow"><span>Phone</span><a href="tel:+8615893817369">+86 158 9381 7369</a></div>
           <div class="crow"><span>GitHub</span><a href="https://github.com/GGabrie1" target="_blank" rel="noopener">github.com/GGabrie1</a></div>
           <div class="crow"><span>Location</span><b>Ningbo, China</b></div>
